@@ -1,0 +1,150 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    /* New Earthy Light Mode Palette */
+    --background: 30 50% 96%;      /* Very Light Beige/Cream */
+    --foreground: 19 35% 23%;      /* Dark Brown (#4B352A) */
+    --card: 0 0% 100%;              /* White */
+    --card-foreground: 19 35% 23%;  /* Dark Brown */
+    --popover: 0 0% 100%;           /* White */
+    --popover-foreground: 19 35% 23%; /* Dark Brown */
+    --primary: 22 40% 46%;          /* Warm Tan/Brown (#A76545) */
+    --primary-foreground: 0 0% 100%; /* White */
+    --secondary: 25 30% 90%;        /* Light Tan/Beige */
+    --secondary-foreground: 19 35% 23%; /* Dark Brown */
+    --muted: 30 40% 93%;            /* Lighter Beige */
+    --muted-foreground: 19 35% 40%; /* Medium Brown */
+    --accent: 22 40% 46%;            /* Warm Tan/Brown (#A76545) - same as primary */
+    --accent-foreground: 0 0% 100%;  /* White */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 25 30% 85%;           /* Light Earthy Border */
+    --input: 25 30% 92%;            /* Light Earthy Input Background */
+    --ring: 22 40% 50%;             /* Brighter Tan/Brown for rings */
+
+    --chart-1: 22 40% 46%;          /* Primary */
+    --chart-2: 19 35% 35%;          /* Mid-tone Brown */
+    --chart-3: 25 30% 60%;          /* Lighter Tan */
+    --chart-4: 20 25% 50%;          /* Another Brown Shade */
+    --chart-5: 30 20% 70%;          /* Muted Beige */
+    --radius: 0.5rem;
+
+    /* Sidebar specific colors - light mode */
+    --sidebar-background: 30 50% 94%;   /* Slightly darker beige */
+    --sidebar-foreground: 19 35% 23%;   /* Dark Brown */
+    --sidebar-primary: 22 40% 46%;      /* Warm Tan/Brown */
+    --sidebar-primary-foreground: 0 0% 100%; /* White */
+    --sidebar-accent: 22 40% 46%;       /* Warm Tan/Brown */
+    --sidebar-accent-foreground: 0 0% 100%; /* White */
+    --sidebar-border: 25 30% 80%;       /* Light Earthy Border for Sidebar */
+    --sidebar-ring: 22 40% 50%;         /* Brighter Tan/Brown for rings */
+  }
+
+  .dark {
+    /* Dark Mode - UNCHANGED from previous state */
+    --background: 220 15% 10%;    /* Very Dark Blue-Gray */
+    --foreground: 210 15% 90%;    /* Light Gray for text */
+    --card: 220 15% 13%;          /* Slightly lighter than background for cards */
+    --card-foreground: 210 15% 90%; /* Same as main foreground */
+    --popover: 220 15% 13%;
+    --popover-foreground: 210 15% 90%;
+    --primary: 327 80% 60%;       /* Adjusted Pink for dark mode */
+    --primary-foreground: 220 15% 10%; /* Dark for text on primary */
+    --secondary: 220 15% 18%;      /* Darker shade for secondary elements */
+    --secondary-foreground: 210 10% 70%; /* Lighter gray for text on secondary */
+    --muted: 220 15% 18%;
+    --muted-foreground: 210 10% 65%;
+    --accent: 25 85% 60%;         /* Orange (slightly adjusted for dark) */
+    --accent-foreground: 220 15% 10%; /* Dark for text on accent */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 25%;        /* Dark border */
+    --input: 220 15% 25%;         /* Dark input */
+    --ring: 327 80% 65%;          /* Primary color for rings */
+
+    --chart-1: 327 80% 60%;
+    --chart-2: 25 85% 60%;
+    --chart-3: 262 70% 55%;
+    --chart-4: 300 50% 60%;
+    --chart-5: 340 60% 65%;
+
+    /* Sidebar specific colors - dark mode - UNCHANGED */
+    --sidebar-background: 220 15% 8%;
+    --sidebar-foreground: 210 15% 90%;
+    --sidebar-primary: 327 80% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 25 85% 60%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 220 15% 25%;
+    --sidebar-ring: 327 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    @apply transition-colors duration-300;
+  }
+  section {
+    @apply py-12 sm:py-16 md:py-20;
+  }
+
+  .animate-fadeInText {
+    animation: fadeInTextAnimation 0.5s ease-in-out;
+  }
+
+  @keyframes fadeInTextAnimation {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+}
+
+/* Animation classes */
+.scroll-animate-fade-in {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+.scroll-animate-fade-in.is-visible {
+  opacity: 1;
+}
+
+.scroll-animate-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.scroll-animate-slide-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate-slide-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.scroll-animate-slide-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.scroll-animate-slide-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+.scroll-animate-slide-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
