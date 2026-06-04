@@ -134,7 +134,7 @@ export type ContactInfoItem = {
 };
 
 export const CONTACT_INFO: ContactInfoItem[] = [
-  { icon: Phone, label: 'Phone', value: '+91 63032105', href: 'tel:+919630321053' },
+  { icon: Phone, label: 'Phone', value: '+91 9630321053', href: 'tel:+919630321053' },
   { icon: Mail, label: 'Email', value: 'soneriyar@gmail.com', href: 'mailto:soneriyar@gmail.com' },
   { icon: MapPin, label: 'Address', value: 'Indore, Madhya Pradesh, India' },
 ];
